@@ -7,6 +7,9 @@ function sumarUno(numero) {
   // El resolve se ejecuta si todo sale bien.
   // El reject se ejecuta si ocurre un error.
   var promesa = new Promise( (resolve, reject) => {
+    // Se muestra un mensaje en consola
+    console.log(numero);
+
     // Se verifica que el monto no sea superior a 7.
     if(numero >= 7){
       // Se llama a la función reject.
