@@ -34,17 +34,10 @@ console.log(sumarUno(5).then(nuevoNumero => {
 // });
 
 // Función sumar uno con dos anidados
-sumarUno(5).then(nuevoNumero => {
-  console.log(nuevoNumero);
-  // Se retorna una promesa con el resultado de la primera operación.
-  return sumarUno(nuevoNumero);
-}).then(nuevoNumero => {
-  // Se muestra en consola el resultado de la segunda iteración
-  console.log(nuevoNumero);
-
-  // Se retorna una promesa con el resultado de la segunda operación
-  return sumarUno(nuevoNumero);
-}).then(nuevoNumero => {
+sumarUno(5)
+.then(sumarUno)
+.then(sumarUno)
+.then(nuevoNumero => {
   // Se muestra en consola el resultado de la tercera operación.
   console.log(nuevoNumero);
 });
