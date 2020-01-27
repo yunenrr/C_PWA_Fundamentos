@@ -39,13 +39,23 @@ function sumarUno(numero) {
 // });
 
 // Función sumar uno con dos anidados
-sumarUno(8)
-.then(nuevoNumero => {
-  console.log(nuevoNumero);
-  console.log("--------------------------------------------------------");
-}).catch(error => {
+// sumarUno(8)
+// .then(nuevoNumero => {
+//   console.log(nuevoNumero);
+//   console.log("--------------------------------------------------------");
+// }).catch(error => {
+//   console.log("Error: " + error);
+// });
+
+sumarUno(5)
+.then(sumarUno)
+.then(sumarUno)
+.then(sumarUno)
+.catch(error => {
   console.log("Error: " + error);
 });
+
+
 // .then(sumarUno)
 // .then(nuevoNumero => {
 //   // Se muestra en consola el resultado de la tercera operación.
