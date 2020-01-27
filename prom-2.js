@@ -1,13 +1,18 @@
 /**
  * Función que incrementa en uno el valor pasado por parámetros.
  * @param {number} numero Número que se desea incrementar.
- * @param {function} _callback Función a ejecutar cuando se obtenga el resultado
  */
-function sumarUno(numero, _callback) {
+function sumarUno(numero) {
   // Se almacena la promesa
   // El resolve se ejecuta si todo sale bien.
   // El reject se ejecuta si ocurre un error.
   var promesa = new Promise( (resolve, reject) => {
+    // Se verifica que el monto no sea superior a 7.
+    if(numero >= 7){
+      // Se llama a la función reject.
+      reject('El número es muy alto');
+    }
+
     // Se ejecuta un Timer.
     // Se utiliza el resolve debido a que contiene el valor cuando toco ocurrió bien.
     setTimeout(() => resolve(numero + 1), 800);
@@ -17,10 +22,10 @@ function sumarUno(numero, _callback) {
 }
 
 // La función then se ejecuta cuando ya se haya terminado de ejecutar la promesa.
-console.log(sumarUno(5).then(nuevoNumero => {
-  console.log(nuevoNumero);
-  console.log("----------------------------------------------");
-}));
+// console.log(sumarUno(5).then(nuevoNumero => {
+//   console.log(nuevoNumero);
+//   console.log("----------------------------------------------");
+// }));
 
 // // Función sumar uno con anidado
 // sumarUno(5).then(nuevoNumero => {
@@ -34,10 +39,15 @@ console.log(sumarUno(5).then(nuevoNumero => {
 // });
 
 // Función sumar uno con dos anidados
-sumarUno(5)
-.then(sumarUno)
-.then(sumarUno)
+sumarUno(8)
 .then(nuevoNumero => {
-  // Se muestra en consola el resultado de la tercera operación.
   console.log(nuevoNumero);
+  console.log("--------------------------------------------------------");
+}).catch(error => {
+  console.log("Error: " + error);
 });
+// .then(sumarUno)
+// .then(nuevoNumero => {
+//   // Se muestra en consola el resultado de la tercera operación.
+//   console.log(nuevoNumero);
+// });
