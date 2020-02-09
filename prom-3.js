@@ -14,10 +14,18 @@ let sumarRapido = (numero) => {
   // Se retorna una promesa.
   return new Promise((resolve, reject) => {
     // Se define un Time out.
-    setTimeout( () => resolve(numero++), 300);
+    setTimeout( () => resolve(numero+1), 300);
   });
 }
 
 // Se llama a ambas funciones y se imprime el resultado en consola.
 sumarLento(5).then(console.log);
-sumarLento(10).then(console.log);
+sumarRapido(10).then(console.log);
+
+// Ejecutar "n" promesas de manera simultanea.
+// El resultado se retorna en el orden de las promesas pasadas por parámetros, es decir, de primero se retorna el resultado de sumarLento.
+Promise.all([sumarLento(5), sumarRapido(10)])
+.then(respuestas => {
+  console.log(respuestas);
+})
+.catch(console.log);
