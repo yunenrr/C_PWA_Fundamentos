@@ -4,7 +4,8 @@ function sumarLento(numero) {
     // Se ejecuta un time out.
     setTimeout(function(){
       // Se aumenta el número en uno.
-      resolve(numero + 1);
+      //resolve(numero + 1);
+      reject('Sumar lento falló');
     }, 800)
   });
 }
