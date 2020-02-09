@@ -4,8 +4,8 @@ function sumarLento(numero) {
     // Se ejecuta un time out.
     setTimeout(function(){
       // Se aumenta el número en uno.
-      //resolve(numero + 1);
-      reject('Sumar lento falló');
+      resolve(numero + 1);
+      //reject('Sumar lento falló');
     }, 800)
   });
 }
@@ -20,12 +20,15 @@ let sumarRapido = (numero) => {
 }
 
 // Se llama a ambas funciones y se imprime el resultado en consola.
-sumarLento(5).then(console.log);
-sumarRapido(10).then(console.log);
+// sumarLento(5).then(console.log);
+// sumarRapido(10).then(console.log);
+
+// Se declara un arreglo de objetos
+let cosas = [sumarLento(5), sumarRapido(10), true, 'hola mundo'];
 
 // Ejecutar "n" promesas de manera simultanea.
 // El resultado se retorna en el orden de las promesas pasadas por parámetros, es decir, de primero se retorna el resultado de sumarLento.
-Promise.all([sumarLento(5), sumarRapido(10)])
+Promise.all(cosas)
 .then(respuestas => {
   console.log(respuestas);
 })
